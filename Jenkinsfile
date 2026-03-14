@@ -5,13 +5,13 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/devops-cicd-jenkins-docker.git'
+                git 'https://github.com/Aishhh-27/jenkins-docker-cicd.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t cicd-devops-app .'
+                sh 'docker build -t cicd-demo .'
             }
         }
 
@@ -20,7 +20,7 @@ pipeline {
                 sh '''
                 docker stop cicd-container || true
                 docker rm cicd-container || true
-                docker run -d -p 5000:5000 --name cicd-container cicd-devops-app
+                docker run -d -p 5000:5000 --name cicd-container cicd-demo
                 '''
             }
         }
