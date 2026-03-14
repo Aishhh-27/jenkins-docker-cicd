@@ -16,14 +16,14 @@ pipeline {
         }
 
         stage('Run Docker Container') {
-            steps {
-                sh '''
-                docker stop cicd-container || true
-                docker rm cicd-container || true
-                docker run -d -p 5000:5000 --name cicd-container cicd-demo
-                '''
-            }
-        }
+    steps {
+        sh '''
+        docker stop cicd-container || true
+        docker rm cicd-container || true
+        docker run -d -p 5000:5000 --name cicd-container cicd-demo
+        '''
+    }
+}
 
     }
 }
